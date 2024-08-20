@@ -1,0 +1,92 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* CSS for header */
+header {
+    background-color: #669ccb; /* Change to your desired background color */
+    color: white; /* Change to your desired text color */
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .menu {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+  }
+  
+  .menu li a:hover {
+    color: #e8f1fa; /* Change to your desired hover color */
+  }
+  
+h1 {
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.product {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.product img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 5px;
+}
+
+.product-info {
+    padding-left: 20px;
+}
+
+.price {
+    font-weight: bold;
+}
+
+.button {
+
+display: flex;
+width: auto;
+}
+
+.button a{
+    font-size:14px ;
+    color: #efe9e9;
+    font-weight:600;
+    letter-spacing: 1px ;
+    text-decoration: none ;
+    padding: 14px 12px;
+    background-color: #000;
+    border: #000;
+    border-radius: 3px;
+
+}
+
+.button a:hover{
+    box-shadow: 1px 2px 5px white ;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Gear Shop</title>
+<link rel="stylesheet" href="shop.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Fit Buddy</div>
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="service.html">Services</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="product">
+            <img src="https://contents.mediadecathlon.com/p2588537/9db83242789e8cb377727f318f8de00f/p2588537.jpg?format=auto&quality=70&f=650x0" alt="Product Image">
+            <div class="product-info">
+                <h2>Men's Workout Top</h2>
+                <p>Description: Stay comfortable and stylish during your workouts with our range of breathable and moisture-wicking tops.</p>
+                <p class="price">$30</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Men Workout Top', 30)">Buy Now</a>
+                    <button onclick="addToCart('Men Workout Top', 30)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2020/10/QC/DG/MS/82509743/women-yoga-pants-woman-tight-gym-leggings-fitness-.jpg" alt="Product Image">
+            <div class="product-info">
+                <h2>Women's Workout Leggings</h2>
+                <p>Description: Find the perfect balance of comfort and performance with our selection of workout leggings.</p>
+                <p class="price">$35</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Women Workout Leggings', 35)">Buy Now</a>
+                    <button onclick="addToCart('Women Workout Leggings', 35)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://contents.mediadecathlon.com/p2393886/f25b25ad650711334753a9888228cbea/p2393886.jpg?format=auto&quality=70&f=650x0" alt="Product Image">
+            <div class="product-info">
+                <h2>Men Running Shoes</h2>
+                <p>Description: Choose from a variety of running shoes engineered to provide support, cushioning, and stability for your runs.</p>
+                <p class="price">$80</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Men Running Shoes', 80)">Buy Now</a>
+                    <button onclick="addToCart('Men Running Shoes', 80)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2020/10/DK/ZC/ST/115418278/rs5-500x500.jpg" alt="Product Image">
+            <div class="product-info">
+                <h2>Women Running Shoes</h2>
+                <p>Description: Choose from a variety of running shoes engineered to provide support, cushioning, and stability for your runs.</p>
+                <p class="price">$80</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Women Running Shoes', 80)">Buy Now</a>
+                    <button onclick="addToCart('Women Running Shoes', 80 )">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://5.imimg.com/data5/SF/MG/GLADMIN-13686214/fitbit-charge-hr-fitness-band-fb405-black-large-250x250.png" alt="Product Image">
+            <div class="product-info">
+                <h2>Fitness Band</h2>
+                <p>Description: Introducing the FlexiFit Pro Fitness Band – your ultimate fitness companion. Track your steps, distance, calories, and heart rate. With water resistance and smartphone integration, it's perfect for any workout. Get yours now and take your fitness journey to the next level!.</p>
+                <p class="price">$150</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Fitness Band', 150)">Buy Now</a>
+                    <button onclick="addToCart('Fitness Band', 150)">Add to Cart</button>
+                </div>
+                
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/51ltFEpWdpL._AC_UF1000,1000_QL80_.jpg" alt="Product Image">
+            <div class="product-info">
+                <h2>Weight Machine</h2>
+                <p>Description: Your personal fitness tracker for a healthier lifestyle. With precise measurements, track your progress effortlessly. Compact and user-friendly, it's the perfect addition to your home gym. Start achieving your goals today!</p>
+                <p class="price">$120</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Weight Machine', 120)">Buy Now</a>
+                    <button onclick="addToCart('Weight Machine', 120)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://m.media-amazon.com/images/I/91OqShmtY4L._AC_UF1000,1000_QL80_.jpg" alt="Product Image">
+            <div class="product-info">
+                <h2>Protien Powder</h2>
+                <p>Description: The essential fuel for your fitness journey. Packed with high-quality protein, it supports muscle growth and recovery. With a delicious taste and easy mixability, it's your perfect post-workout partner. Elevate your workouts and reach your goals with our Protein Powder today!</p>
+                <p class="price">$60</p>
+                <div class="button">
+                    <a href="#" onclick="buyNow('Protien Powder', 60)">Buy Now</a>
+                    <button onclick="addToCart('Protien Powder', 60)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            function addToCart(name, price) {
+    // Retrieve existing cart items from localStorage or initialize empty array
+    let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    
+    // Push new item to cartItems array
+    cartItems.push({
+        name: name,
+        price: price
+    });
+    
+    // Store updated cartItems array back to localStorage
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+    
+    // Redirect to cart page
+    window.location.href = "cart.html";
+}
+function buyNow(name, price) {
+            addToCart(name, price); // Call addToCart function to add the item to the cart
+            window.location.href = "cart.html"; // Redirect to cart page
+        }
+            </script>
+</body>
+</html>

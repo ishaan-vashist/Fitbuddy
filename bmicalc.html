@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5; /* Background color for the body */
+    }
+    header {
+        background-color: #007bff; /* Header background color */
+        color: #fff; /* Header text color */
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adding shadow for depth */
+    }
+    .logo {
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .menu {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .menu li {
+        display: inline;
+        margin: 0 10px;
+    }
+    .menu li a {
+        color: #fff;
+        text-decoration: none;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        background-color: #fff; /* Background color for the container */
+        transition: transform 0.3s ease; /* Adding transition for smoother scale effect */
+    }
+    .container:hover {
+        transform: scale(1.02); /* Scale up the container on hover */
+    }
+    h1 {
+        text-align: center;
+        color: #007bff; /* Header text color */
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    label {
+        margin-bottom: 5px;
+        color: #555; /* Label text color */
+    }
+    input[type="number"] {
+        margin-bottom: 10px;
+        padding: 8px;
+    }
+    button {
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease; /* Adding transition for smoother color change */
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    #result {
+        margin-top: 20px;
+        opacity: 0; /* Initially hide the result */
+        transition: opacity 0.5s ease; /* Adding transition for smoother fade-in effect */
+    }
+    #result.show {
+        opacity: 1; /* Show the result with fade-in effect */
+    }
+    footer {
+        background-color: #007bff; /* Footer background color */
+        color: #fff; /* Footer text color */
+        text-align: center;
+        padding: 20px 0;
+    }
+    .social__icons span {
+        margin: 0 10px;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+<header>
+    <div class="logo">Fit Buddy</div>
+    <ul class="menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="service.html">Services</a></li>
+    </ul>
+</header>
+<div class="container">
+    <h1>Fitness Calculator</h1>
+    <form id="calculator">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" required>
+        
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" required>
+        
+        <label for="age">Age:</label>
+        <input type="number" id="age" required>
+        
+        <label for="gender">Gender:</label>
+        <select id="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+        
+        <button type="button" onclick="calculate()">Calculate</button>
+    </form>
+    
+    <div id="result"></div>
+</div>
+
+<footer>
+    <div class="section__container">
+      <h4>Stay Connected</h4>
+      <div class="social__icons">
+        <span><i class="ri-facebook-fill"></i></span>
+        <span><i class="ri-twitter-fill"></i></span>
+        <span><i class="ri-instagram-line"></i></span>
+        <span><i class="ri-linkedin-fill"></i></span>
+      </div>
+    </div>
+</footer>
+
+<script>
+function calculate() {
+    const weight = parseFloat(document.getElementById('weight').value);
+    const height = parseFloat(document.getElementById('height').value) / 100; // convert to meters
+    const age = parseInt(document.getElementById('age').value);
+    const gender = document.getElementById('gender').value;
+
+    // Calculate BMI
+    const bmi = weight / (height * height);
+
+    // Calculate ideal weight
+    let idealWeight;
+    if (gender === 'male') {
+        idealWeight = 50 + 0.91 * (height * 100 - 152.4);
+    } else {
+        idealWeight = 45.5 + 0.91 * (height * 100 - 152.4);
+    }
+
+    // Calculate body fat
+    const bodyFat = (1.2 * bmi) + (0.23 * age) - (10.8 * (gender === 'female' ? 1 : 0)) - 5.4;
+
+    // Display results with animation
+    const resultElement = document.getElementById('result');
+    resultElement.innerHTML = `
+        <h2>Results</h2>
+        <p>BMI: ${bmi.toFixed(2)}</p>
+        <p>Ideal Weight: ${idealWeight.toFixed(2)} kg</p>
+        <p>Body Fat: ${bodyFat.toFixed(2)}%</p>
+    `;
+    resultElement.classList.add('show'); // Add the 'show' class to trigger fade-in effect
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,211 @@
+/* chest.css */
+
+/* Resetting default margin and padding */
+body, ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Styling the navigation bar */
+  nav {
+    background-color: #669ccb; /* Change to your desired background color */
+    color: white; /* Change to your desired text color */
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling the logo */
+  .nav__logo a {
+    text-decoration: none;
+    color: white; /* Change to your desired text color */
+    font-size: 1.5rem;
+    font-weight: bold; /* Optional: Adjust font weight */
+  }
+  
+  /* Styling the navigation links */
+  .nav__links {
+    display: flex;
+    list-style-type: none;
+  }
+  
+  .nav__links li {
+    margin-right: 1rem; /* Adjust spacing between links */
+  }
+  
+  .nav__links li a {
+    text-decoration: none;
+    color: white; /* Change to your desired text color */
+    font-weight: bold; /* Optional: Adjust font weight */
+    transition: color 0.3s ease; /* Smooth transition effect */
+  }
+  
+  /* Hover effect for navigation links */
+  .nav__links li a:hover {
+    color: #5681a7; /* Change to your desired hover color */
+  }
+  /* chest.css */
+/* chest.css */
+/* chest.css */
+/* chest.css */
+
+/* Styling the exercise section */
+.exercise__container {
+    padding: 5rem 0; /* Adjust padding as needed */
+    background-color: #f3f4f6; /* Change to your desired background color */
+  }
+  
+  .section__container {
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  .exercise__cards {
+    display: flex;
+    gap: 2rem; /* Adjust spacing between cards */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 1rem; /* Add space at the bottom for scrollbar */
+  }
+  
+  .exercise__card {
+    flex: 0 0 auto; /* Ensure cards don't grow to fill available space */
+    width: 300px; /* Adjust card width as needed */
+    background-color: #ffffff; /* Change to your desired card background color */
+    border-radius: 10px; /* Optional: Add border radius to cards */
+    padding: 1rem; /* Adjust padding within cards */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add shadow to cards */
+  }
+  
+  .exercise__card img {
+    width: 100%; /* Ensure images take full width within cards */
+    border-radius: 8px; /* Optional: Add border radius to images */
+  }
+  
+  .exercise__card p {
+    text-align: center;
+    margin-top: 1rem; /* Adjust spacing between image and text */
+    color: #282d31; /* Change to your desired text color */
+  }
+  /* CSS for footer */
+
+/* CSS for footer */
+footer {
+    background-color: var(--text-dark);
+    color: var(--secondary-color);
+  }
+  
+  footer .section__container {
+    display: grid;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  footer h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  
+  .social__icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .social__icons i {
+    padding: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  footer p {
+    font-style: italic;
+  }
+  
+  @media (min-width: 640px) {
+    .nav__links {
+      display: flex;
+    }
+  
+    header .section__container {
+      justify-content: flex-start;
+    }
+  
+    .header__content {
+      max-width: 400px;
+      align-items: flex-start;
+    }
+  
+    .header__content p {
+      text-align: left;
+    }
+  
+    .journey__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  
+    .display__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  
+    .display__card {
+      gap: 0;
+    }
+  
+    .display__card i {
+      font-size: 1.75rem;
+    }
+  
+    .display__card h4 {
+      font-size: 1rem;
+    }
+  
+    .display__card p {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (min-width: 786px) {
+    .banner__container .section__container {
+      justify-content: flex-end;
+    }
+  
+    .banner__content {
+      align-items: flex-end;
+      text-align: right;
+      max-width: 800px;
+    }
+  
+    .display__card {
+      gap: 0.5rem;
+    }
+  
+    .display__card i {
+      font-size: 2.5rem;
+    }
+  
+    .display__card p {
+      font-size: 0.8rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .display__card {
+      gap: 1rem;
+    }
+  
+    .display__card i {
+      font-size: 3rem;
+    }
+  
+    .display__card h4 {
+      font-size: 1.5rem;
+    }
+  
+    .display__card p {
+      font-size: 1rem;
+    }
+  }
+  

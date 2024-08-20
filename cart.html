@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart Page</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+    }
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+    .cart-item p {
+        margin: 0;
+    }
+    .remove-btn {
+        padding: 5px 10px;
+        background-color: #ff0000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .remove-btn:hover {
+        background-color: #cc0000;
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Cart Page</h1>
+    
+    <div id="cart-items">
+        <!-- Cart items will be dynamically added here -->
+    </div>
+    
+    <div id="total-amount">
+        <!-- Total amount will be displayed here -->
+    </div>
+    
+</div>
+
+<script>
+// Retrieve cart items from localStorage
+let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+
+// Display cart items
+const cartElement = document.getElementById('cart-items');
+if (cartItems.length === 0) {
+    cartElement.innerHTML = '<p>Your cart is empty.</p>';
+} else {
+    // Generate HTML for each item in the cart
+    const cartHTML = cartItems.map((item, index) => {
+        return `
+            <div class="cart-item">
+                <p>${item.name} - $${item.price}</p>
+                <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+            </div>
+        `;
+    }).join('');
+    cartElement.innerHTML = cartHTML;
+}
+
+// Function to remove item from cart
+function removeFromCart(index) {
+    cartItems.splice(index, 1); // Remove item from cartItems array
+    localStorage.setItem('cartItems', JSON.stringify(cartItems)); // Update localStorage
+    location.reload(); // Refresh page to reflect changes
+}
+
+// Function to calculate total amount
+const totalAmountElement = document.getElementById('total-amount');
+const totalAmount = cartItems.reduce((total, item) => total + item.price, 0);
+totalAmountElement.innerHTML = `<p>Total Amount: $${totalAmount.toFixed(2)}</p>`;
+</script>
+</body>
+</html>
